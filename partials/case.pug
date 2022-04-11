@@ -1,0 +1,215 @@
+mixin template({ id, title, category, company, role, technologies, link, label, gallery })
+  article.case(id=id)
+    header.case__header
+      h3.case__title
+        span.case__title__text=title
+
+      figure.case__media
+        img.case__media__image(
+          data-src=`/projects/${id}.jpg`
+          data-src-webp=`/projects/${id}.webp`
+        )
+
+    .case__information
+      p.case__information__detail
+        | #[strong.case__information__detail__title Ally / Partner]
+        | #{company}
+
+      p.case__information__detail
+        | #[strong.case__information__detail__title Role]
+        | #{role}
+
+      p.case__information__detail
+        | #[strong.case__information__detail__title Year (s)]
+        | #{technologies}
+
+      if link
+        p.case__information__detail
+          | #[strong.case__information__detail__title Live URL]
+          | #[a(href=link target="_blank" rel="noreferrer noopener") #{label}]
+
+    .case__gallery
+      each content, index in gallery
+        .case__gallery__media
+          .case__gallery__media__box(style=`max-width: ${content.width / 10}rem;`)
+            span.case__gallery__media__loader
+              span
+              span
+              span
+
+            span.case__gallery__media__placeholder(
+              data-src=`/case/${id}/${content.image}.jpg`
+              data-src-webp=`/case/${id}/${content.image}.webp`
+              style=`padding-top: ${content.height / content.width * 100}%;`
+            )
+
+.cases
+  +template({
+    id: 'blood',
+    title: 'BLOOD IN THE FOREST',
+    company: 'Environmental Defenders (Uganda)',
+    role: 'Researcher · GIS specialist · Information Designer',
+    technologies: '2021',
+    label: 'Open Source Investigation (2021). Blood in the forest. Identification of ecologically fragile areas prioritized for forest conservation and restoration in Mambasa and Mongbwalu sector, Ituri province, Democratic Republic of the Congo',
+    link: 'https://www.watetezi.org/wp-content/uploads/2021/03/Environemtal-Defenders-Blood-in-the-forest-v01.pdf',
+    gallery: [
+      { image: '1', type: 'screenshot', height: '1358', width: '1920' },
+      { image: '2', type: 'screenshot', height: '1358', width: '1920' },
+      { image: '3', type: 'screenshot', height: '1358', width: '1920' }
+    ]
+  })
+
+  +template({
+    id: 'shores',
+    title: 'ALONG THE SHORES',
+    company: 'Environmental Defenders (Uganda)',
+    role: 'Researcher · Front-end developer · Information Designer',
+    technologies: '2021',
+    label: 'Open Source Investigation (2021). Along the Shores of the Itaka Lya Mwitanzige. A journey that connects women and rights in the Northern Albertine Rift, Uganda',
+    link: 'https://watetezi.org/hrd/along-the-shores/index.html',
+    gallery: [
+      { image: '1', type: 'screenshot', height: '1080', width: '1920' },
+      { image: '2', type: 'screenshot', height: '1080', width: '1920' },
+      { image: '3', type: 'screenshot', height: '1080', width: '1920' },
+      { image: '4', type: 'screenshot', height: '1080', width: '1920' }
+    ]
+  })
+
+  +template({
+    id: 'onda',
+    title: 'ÁGUA E MATA',
+    company: 'Onda Verde (Brazil)',
+    role: 'Researcher · GIS specialist · Information Designer',
+    technologies: '2021',
+    label: 'Open Source Investigation (2021). Onda Verde, a Forest Economies Center for the Baixada Fluminense Assessment of the operational scenario and the potential of forest restoration as a climate change adaptation strategy',
+    link: 'https://www.alessandromusetta.com/comunidados/arquivo/Brasil/Onda-Verde-Um-centro-de-economia-florestal-pela-Baixada-Fluminense/01-Onda-Verde-Um-centro-de-economia-florestal-pela-Baixada-Fluminense.pdf',
+    gallery: [
+      { image: '1', type: 'screenshot', height: '1080', width: '1920' },
+      { image: '2', type: 'screenshot', height: '1086', width: '1920' },
+      { image: '3', type: 'screenshot', height: '1088', width: '1920' }
+    ]
+  })
+
+  +template({
+    id: 'tracker',
+    title: 'TRACKER',
+    company: 'Ngetha Media Association for Peace (Uganda)',
+    role: 'Front-end web developer · GIS specialist · Information Designer',
+    technologies: '2020',
+    label: 'The Albertine Region Tracker is a human rights abuses and environmental crimes reporting and mapping platform. The Albertine region tracker gathers, audits and publishes reports from a network of dedicated and trained activists based in the districts of northern and western Uganda.',
+    link: 'https://watetezi.org/tracker/',
+    gallery: [
+      { image: '1', type: 'screenshot', height: '1071', width: '1920' },
+      { image: '2', type: 'screenshot', height: '1071', width: '1920' }    
+      ]
+  })
+
+  +template({
+    id: 'underwater',
+    title: 'ITALY UNDERWATER',
+    company: 'Valori (Italy)',
+    role: 'GIS specialist · Information Designer',
+    technologies: '2020',
+    label: 'Italy underwater because of climate change: how much wealth each Italian province would lose',
+    link: 'https://valori.it/innalzamento-mari-danni-miliardari-mappe/',
+    gallery: [
+      { image: '1', type: 'screenshot', height: '1357', width: '1920' },
+      { image: '2', type: 'screenshot', height: '1357', width: '1920' },
+      { image: '3', type: 'screenshot', height: '1357', width: '1920' },
+      { image: '4', type: 'screenshot', height: '1357', width: '1920' }
+    ]
+  })
+
+  +template({
+    id: 'metro',
+    title: 'METROCARTOGRAPHY',
+    company: 'Polytechnic University of Milan (Italy)',
+    role: 'Researcher · Front-end web developer',
+    technologies: '2019',
+    label: 'Online course. City is a complex, adaptive, and closed-boundary system that continuously transform itself. It has been conceived as dynamic systems subject to optimization. A series of new integrative approaches have allowed advancement ind re-conceptualising city as a complex system and the developing a scientific practice framed by the theory of complexity. These practices have been implemented in city management, to control the city as a whole, to supervise phenomena and to lead evolution. The metropolitan cartography is the process of reading, understanding, and interpreting the territory of a metropolis using maps and spatial information technologies in a decision-making support system.',
+    link: 'https://www.alessandromusetta.com/metrocarto/Lk4YGYmTs4LaMCgV.html',
+    gallery: [
+      { image: '1', type: 'screenshot', height: '1080', width: '1920' },
+      { image: '2', type: 'screenshot', height: '1080', width: '1920' },
+      { image: '3', type: 'screenshot', height: '1080', width: '1920' }
+    ]
+  })
+
+  +template({
+    id: 'paz',
+    title: 'PACEÑ@S Y ALTEÑ@S ',
+    company: 'Polytechnic University of Milan (Italy)',
+    role: 'Researcher · GIS specialist',
+    technologies: '2018',
+    label: 'Research materials and methods about La Paz / El Alto urban area within the UN-Habitat Expert Group for developing the Guiding Principles on Urban-Rural Linkages for advancing integrated territorial development',
+    link: '/',
+    gallery: [
+      { image: '1', type: 'screenshot', height: '1080', width: '1920' },
+      { image: '2', type: 'screenshot', height: '1080', width: '1920' }
+    ]
+  })
+
+  +template({
+    id: 'uganda',
+    title: 'WAKATI UJAO JE?',
+    company: 'Polytechnic University of Milan (Italy)',
+    role: 'Researcher · GIS specialist',
+    technologies: '2018',
+    label: 'Research materials and methods about secondary cities in Uganda with a focus in the Koboko, Arua, Nebbi corridor, West Nile Region',
+    link: '/',
+    gallery: [
+      { image: '1', type: 'screenshot', height: '1080', width: '1920' },
+      { image: '2', type: 'screenshot', height: '1080', width: '1920' },
+      { image: '3', type: 'screenshot', height: '1080', width: '1920' },
+      { image: '4', type: 'screenshot', height: '1080', width: '1920' },
+      { image: '5', type: 'screenshot', height: '1080', width: '1920' },
+      { image: '6', type: 'screenshot', height: '1080', width: '1920' },
+      { image: '7', type: 'screenshot', height: '1080', width: '1920' }
+    ]
+  })
+
+  +template({
+    id: 'vie',
+    title: 'SANT ORSOLA 5',
+    company: 'Urban Genoma (Italy)',
+    role: 'Information Designer · map design',
+    technologies: '2017',
+    label: 'Historical GIS. Muzio, Gio Ponti e gli architetti di via Sant Orsola',
+    link: 'https://www.alessandromusetta.com/presentations/milano/milano.php',
+    gallery: [
+      { image: '1', type: 'screenshot', height: '1068', width: '1920' },
+      { image: '2', type: 'screenshot', height: '1072', width: '1920' },
+      { image: '3', type: 'screenshot', height: '1071', width: '1920' }
+    ]
+  })
+
+  +template({
+    id: 'diesel',
+    title: 'DIESELGATE',
+    company: 'Economia e Sostenibilità (Italy)',
+    role: 'Information Designer',
+    technologies: '2017',
+    label: '2017 was the year of the Dieselgate, but what are the advancements in the sustainable mobility industry? Are we facing a paradigm shift?',
+    gallery: [
+      { image: '1', type: 'screenshot', height: '1351', width: '1920' },
+      { image: '2', type: 'screenshot', height: '1351', width: '1920' },
+      { image: '3', type: 'screenshot', height: '1376', width: '1920' }
+    ],
+    link: '/'
+  })
+
+  +template({
+    id: 'sound',
+    title: 'SOUND OF THINGS',
+    company: '@allyoucanmap',
+    role: 'Researcher · Information Designer',
+    technologies: '2014',
+    label: '(experimental) Sonification and musification: turning information into knowledge through the design and production of a taxonomy that provides a systematic classification of visualization techniques of data.',
+    gallery: [
+      { image: '1', type: 'screenshot', height: '1059', width: '1920' },
+      { image: '2', type: 'screenshot', height: '1086', width: '1920' },
+      { image: '3', type: 'screenshot', height: '1086', width: '1920' },
+      { image: '4', type: 'screenshot', height: '1087', width: '1920' }
+    ],
+    link: 'https://studiomaertens.com/'
+  })
